@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <meta name="design_doc_mode" content="canvas">
+  <style>
+    body { margin: 0; background: #EAE6DC; }
+    * { box-sizing: border-box; }
+    a { color: #800020; }
+    a:hover { color: #5c0017; }
+    @media (min-width: 700px) { .hero3-grid { grid-template-columns: 1fr 1fr !important; } }
+  </style>
+</helmet>
+
+<div style="font-family: 'Jost', sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 56px;">
+
+  <section style="max-width: 1280px; width: 100%;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <span style="background: #800020; color: #F7F4ED; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 20px;">nuevo</span>
+      <span style="font-size: 14px; color: #6b6055;">Foto de fondo real — texto arriba, poco gradiente</span>
+    </div>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap;">
+
+      <div style="flex: 1 1 380px; min-width: 320px;">
+        <div style="font-size: 12px; color: #8A9A8A; letter-spacing: 1px; margin-bottom: 8px;">A — scrim suave arriba</div>
+        <div style="background: #F7F4ED; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; aspect-ratio: 3/4; max-height: 780px;">
+          <img src="./images/hero-couple.jpeg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 42%; background: linear-gradient(180deg, rgba(20,20,15,0.32) 0%, rgba(20,20,15,0.12) 70%, rgba(20,20,15,0) 100%);"></div>
+          <div style="position: absolute; top: 48px; left: 0; right: 0; text-align: center; padding: 0 24px;">
+            <div style="font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: #F7F4ED; margin-bottom: 14px; text-shadow: 0 2px 10px rgba(0,0,0,0.4);">Nos casamos!</div>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 500; color: #F7F4ED; margin: 0; line-height: 1.05; text-shadow: 0 3px 14px rgba(0,0,0,0.4);">Cami <span style="font-style: italic; font-weight: 400;">&amp;</span> Fede</h1>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex: 1 1 380px; min-width: 320px;">
+        <div style="font-size: 12px; color: #8A9A8A; letter-spacing: 1px; margin-bottom: 8px;">B — sin gradiente, tarjeta chica flotante</div>
+        <div style="background: #F7F4ED; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; aspect-ratio: 3/4; max-height: 780px;">
+          <img src="./images/hero-couple.jpeg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%;">
+          <div style="position: absolute; top: 44px; left: 50%; transform: translateX(-50%); text-align: center; background: rgba(247,244,237,0.92); padding: 20px 34px; border-radius: 3px; box-shadow: 0 6px 24px rgba(0,0,0,0.18);">
+            <div style="font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #8A9A8A; margin-bottom: 10px;">Nos casamos!</div>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 500; color: #800020; margin: 0; line-height: 1.05; white-space: nowrap;">Cami <span style="font-style: italic; font-weight: 400; color: #8A9A8A;">&amp;</span> Fede</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; width: 100%;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <span style="background: #800020; color: #F7F4ED; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 20px;">1</span>
+      <span style="font-size: 14px; color: #6b6055;">Versión actual</span>
+    </div>
+    <div style="background: #F7F4ED; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      <div style="position: relative; min-height: 680px; display: flex; align-items: center; justify-content: center; padding: 60px 24px;">
+        <div style="position: absolute; inset: 0; z-index: 0;">
+          <image-slot id="h1-bg" shape="rect" placeholder="Foto de la pareja" style="position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;"></image-slot>
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(247,244,237,0.55) 0%, rgba(247,244,237,0.35) 40%, rgba(247,244,237,0.85) 100%);"></div>
+        </div>
+        <div style="position: relative; z-index: 1; text-align: center; max-width: 640px; background: rgba(247,244,237,0.97); padding: 56px 64px; border-radius: 4px;">
+          <div style="font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: #8A9A8A; margin-bottom: 24px;">NOS CASAMOS!</div>
+          <h1 style="font-family: 'Playfair Display', serif; font-size: 84px; font-weight: 500; color: #800020; margin: 0 0 22px; line-height: 1.05;">Cami <span style="font-style: italic; font-weight: 400; color: #8A9A8A;">&amp;</span> Fede</h1>
+          <p style="font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 4px; color: #3d3630; margin: 0 0 10px;">17 · 10 · 26</p>
+          <p style="font-size: 18px; color: #6b6055; margin: 0 0 40px; letter-spacing: 1px;">Buenos Aires, Argentina</p>
+          <div style="display: inline-block; background: #800020; color: #F7F4ED; font-size: 17px; letter-spacing: 1px; padding: 18px 46px; border-radius: 2px;">Confirmar asistencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; width: 100%;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <span style="background: #800020; color: #F7F4ED; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 20px;">2</span>
+      <span style="font-size: 14px; color: #6b6055;">Texto centro + 3 fotos (referencia)</span>
+    </div>
+    <div style="background: #F7F4ED; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px 56px 64px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px;">
+        <div style="display: flex; gap: 26px; font-size: 12px; letter-spacing: 1.5px; color: #6b6055; flex: 1;">
+          <span>NUESTRA HISTORIA</span>
+          <span>VIAJE &amp; ESTADÍA</span>
+        </div>
+        <span style="font-family: 'Playfair Display', serif; font-size: 20px; letter-spacing: 1px; color: #800020; white-space: nowrap;">CAMI &amp; FEDE</span>
+        <div style="display: flex; gap: 12px; justify-content: flex-end; flex: 1;">
+          <span style="font-size: 12px; letter-spacing: 1.5px; color: #6b6055;">FAQS</span>
+          <span style="font-size: 12px; letter-spacing: 1px; color: #F7F4ED; background: #800020; padding: 6px 16px; border-radius: 2px;">RSVP</span>
+        </div>
+      </div>
+      <div style="position: relative; max-width: 980px; margin: 60px auto 0;">
+        <div style="display: flex; align-items: flex-end; justify-content: center; gap: 24px;">
+          <div style="position: relative; width: 100%; flex: 1 1 0; aspect-ratio: 3/4.6;">
+            <image-slot id="h2-left" shape="rect" placeholder="Foto" style="position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;"></image-slot>
+          </div>
+          <div style="position: relative; width: 100%; flex: 1.5 1 0; aspect-ratio: 3/4;">
+            <image-slot id="h2-center" shape="rect" placeholder="Foto principal" style="position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;"></image-slot>
+          </div>
+          <div style="position: relative; width: 100%; flex: 1 1 0; aspect-ratio: 3/4.6;">
+            <image-slot id="h2-right" shape="rect" placeholder="Foto" style="position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;"></image-slot>
+          </div>
+        </div><p style="position: absolute; top: -79px; left: 50%; transform: translateX(-50%); z-index: 5; font-family: 'Playfair Display', serif; font-size: 99px; letter-spacing: 6px; color: #800020; margin: 0; white-space: nowrap; text-shadow: 0 2px 16px rgba(0,0,0,0.35)">17 · 10 · 26</p>
+        
+      </div>
+      <p style="text-align: center; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6b6055; margin: 30px 0 0;">Los invitamos a acompañarnos en el comienzo de una nueva historia juntos.</p>
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; width: 100%;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <span style="background: #800020; color: #F7F4ED; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 20px;">3</span>
+      <span style="font-size: 14px; color: #6b6055;">Grid 1fr / 1fr — texto izq, foto der</span>
+    </div>
+    <div style="background: #F7F4ED; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      <div class="hero3-grid" style="display: grid; grid-template-columns: 1fr; min-height: 680px;">
+        <div style="display: flex; flex-direction: column; justify-content: center; padding: 60px 64px; text-align: left; order: 2;">
+          <div style="font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #8A9A8A; margin-bottom: 22px;">Nos casamos</div>
+          <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(46px, 5.5vw, 72px); font-weight: 500; color: #800020; margin: 0 0 22px; line-height: 1.05;">Cami <span style="font-style: italic; font-weight: 400; color: #8A9A8A;">&amp;</span> Fede</h1>
+          <div style="width: 52px; height: 1px; background: #8A9A8A; margin-bottom: 24px;"></div>
+          <p style="font-family: 'Playfair Display', serif; font-size: 22px; letter-spacing: 3px; color: #3d3630; margin: 0 0 8px;">17 · 10 · 26</p>
+          <p style="font-size: 16px; color: #6b6055; margin: 0 0 36px; letter-spacing: 0.5px;">Buenos Aires, Argentina</p>
+          <div style="display: inline-block; background: #800020; color: #F7F4ED; font-size: 16px; letter-spacing: 1px; padding: 16px 38px; border-radius: 2px; align-self: flex-start;">Confirmar asistencia</div>
+        </div>
+        <div style="position: relative; width: 100%; aspect-ratio: 4/5; order: 1;">
+          <image-slot id="h3-photo" shape="rect" placeholder="Foto de la pareja" style="position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;"></image-slot>
+        </div>
+      </div>
+      <div style="padding: 10px 32px 18px; font-size: 12px; color: #b9a8a3; text-align: center;">En desktop: grid 1fr 1fr lado a lado (arriba se apila en mobile)</div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>
