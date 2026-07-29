@@ -27,19 +27,19 @@
   <div style="{{ navStyle }}">
     <sc-if value="{{ notMobile }}">
       <div style="display: flex; align-items: center; gap: 28px;">
-        <a href="./Save the Date v3.dc.html#hero" style="{{ navLinkStyle }}">Inicio</a>
-        <a href="./Save the Date v3.dc.html#detalles" style="{{ navLinkStyle }}">Cuándo y dónde</a>
-        <a href="./Save the Date v3.dc.html#rsvp" style="{{ navLinkStyle }}">Asistencia</a>
+        <a href="./index.html#hero" style="{{ navLinkStyle }}">Inicio</a>
+        <a href="./index.html#detalles" style="{{ navLinkStyle }}">Cuándo y dónde</a>
+        <a href="./index.html#rsvp" style="{{ navLinkStyle }}">Asistencia</a>
       </div>
     </sc-if>
     <sc-if value="{{ true }}" hint-placeholder-val="{{ true }}">
-      <a href="./Save the Date v3.dc.html#hero"><img src="./assets/monogram-cf-original.png" alt="Cami &amp; Fede" style="{{ logoStyle }}"/></a>
+      <a href="./index.html#hero"><img src="./assets/monogram-cf-original.png" alt="Cami &amp; Fede" style="{{ logoStyle }}"/></a>
     </sc-if>
     <sc-if value="{{ notMobile }}">
       <div style="display: flex; align-items: center; gap: 28px; justify-self: end;">
-        <a href="./Save the Date v3.dc.html#dresscode" style="{{ navLinkStyle }}">Dress code</a>
-        <a href="./Libro de Invitados.dc.html" style="{{ navLinkStyle }}">Invitados</a>
-        <a href="./Nuestra Historia.dc.html" style="{{ navLinkStyle }}">Nuestra historia</a>
+        <a href="./index.html#dresscode" style="{{ navLinkStyle }}">Dress code</a>
+        <a href="./invitados.html" style="{{ navLinkStyle }}">Invitados</a>
+        <a href="./nuestra-historia.html" style="{{ navLinkStyle }}">Nuestra historia</a>
       </div>
     </sc-if>
     <button onClick="{{ toggleMenu }}" aria-label="Menu" style="{{ menuButtonStyle }}">
@@ -51,14 +51,14 @@
   </div>
 
   <div style="{{ menuOverlayStyle }}">
-    <a href="./Save the Date v3.dc.html#hero" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Inicio</a>
-    <a href="./Save the Date v3.dc.html#detalles" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Cuándo y dónde</a>
-    <a href="./Save the Date v3.dc.html#countdown" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Countdown</a>
-    <a href="./Save the Date v3.dc.html#rsvp" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Asistencia</a>
-    <a href="./Save the Date v3.dc.html#dresscode" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Dress code</a>
-    <a href="./Save the Date v3.dc.html#historia" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Galería</a>
-    <a href="./Libro de Invitados.dc.html" style="{{ menuLinkStyle }}">Libro de invitados</a>
-    <a href="./Nuestra Historia.dc.html" style="{{ menuLinkStyle }}">Nuestra historia</a>
+    <a href="./index.html#hero" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Inicio</a>
+    <a href="./index.html#detalles" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Cuándo y dónde</a>
+    <a href="./index.html#countdown" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Countdown</a>
+    <a href="./index.html#rsvp" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Asistencia</a>
+    <a href="./index.html#dresscode" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Dress code</a>
+    <a href="./index.html#historia" onClick="{{ closeMenu }}" style="{{ menuLinkStyle }}">Galería</a>
+    <a href="./invitados.html" style="{{ menuLinkStyle }}">Libro de invitados</a>
+    <a href="./nuestra-historia.html" style="{{ menuLinkStyle }}">Nuestra historia</a>
   </div>
 
   <!-- HEADER -->
