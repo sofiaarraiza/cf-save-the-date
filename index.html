@@ -86,7 +86,7 @@
 
   <!-- QUOTE -->
   <section data-screen-label="Quote" data-fade="{{ true }}" style="padding: {{ quotePadding }}; background: #F7F4ED; text-align: center;">
-    <p style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; color: #800020; margin: 0 auto; max-width: 800px;">&ldquo;Cuando te das cuenta de que queres pasar el resto de tu vida con alguien, deseas que el resto de tu vida empiece lo antes posible.&rdquo;</p>
+    <p style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 34px); line-height: 1.3; color: #800020; margin: 0 auto; max-width: 800px;">&ldquo;Cuando te das cuenta de que queres pasar el resto de tu vida con alguien, deseas que el resto de tu vida empiece lo antes posible.&rdquo;</p>
   </section>
 
   <!-- EL DÍA ESPERADO -->
@@ -123,10 +123,8 @@
   </section>
 
   <!-- FOTO MANOS -->
-  <section data-screen-label="Manos" style="position: relative; padding: 0; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: #800020;"></div>
-    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: #F7F4ED;"></div>
-    <div style="position: relative; width: 100%; max-height: {{ handsMaxHeight }}; aspect-ratio: {{ handsAspect }}; background-image: url('./images/hands-ring.jpg'); background-size: {{ handsBgSize }}; background-repeat: no-repeat; background-position: center bottom;"></div>
+  <section data-screen-label="Manos" style="position: relative; padding: 0; overflow: hidden; background: rgba(138, 154, 138, 0.14);">
+    <div style="position: relative; width: 100%; max-height: {{ handsMaxHeight }}; aspect-ratio: {{ handsAspect }}; background-image: url('./images/hands-ring.png'); background-size: {{ handsBgSize }}; background-repeat: no-repeat; background-position: center -16px;"></div>
   </section>
 
   <!-- CONTADOR GRANDE -->
