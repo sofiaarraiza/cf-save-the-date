@@ -89,7 +89,7 @@
     <p style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 34px); line-height: 1.3; color: #800020; margin: 0 auto; max-width: 800px;">&ldquo;Cuando te das cuenta de que queres pasar el resto de tu vida con alguien, deseas que el resto de tu vida empiece lo antes posible.&rdquo;</p>
   </section>
 
-  <!-- EL DÍA ESPERADO -->
+  <!-- WHERE AND WHEN -->
   <section id="detalles" data-screen-label="El día esperado" data-fade="{{ true }}" style="position: relative; padding: 80px 24px 60px; background: rgba(138,154,138,0.14); text-align: center;">
     <img src="./assets/icon-champagne-burgundy.png" alt="" style="width: 90px; height: 90px; display: block; margin: 0 auto 32px;"/>
     <div style="display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-bottom: 40px;">
@@ -127,32 +127,6 @@
     <div style="position: relative; width: 100%; max-height: {{ handsMaxHeight }}; aspect-ratio: {{ handsAspect }}; background-image: url('./images/hands-ring.png'); background-size: {{ handsBgSize }}; background-repeat: no-repeat; background-position: center top;"></div>
   </section>
 
-  <!-- CONTADOR GRANDE -->
-  <section id="countdown" data-screen-label="El resto de nuestra vida" data-fade="{{ true }}" style="display: none; padding: 40px 24px 80px; background: #F7F4ED; text-align: center;">
-    <h2 style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: clamp(32px, 8vw, 40px); letter-spacing: 1px; text-transform: uppercase; color: #800020; margin: 0 0 48px;"><span style="white-space: nowrap;">El resto de nuestra vida</span><sc-if value="{{ isMobile }}"><br/></sc-if> <span style="white-space: nowrap;">empieza en</span></h2>
-    <div style="display: flex; justify-content: center; align-items: center; gap: clamp(12px, 4vw, 48px); max-width: 1000px; margin: 0 auto; flex-wrap: nowrap;">
-      <div style="flex: 1 1 0; min-width: 0;">
-        <div style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 11vw, 108px); color: #3d3630; line-height: 1;">{{ countdown.days }}</div>
-        <div style="font-size: clamp(10px, 2vw, 14px); letter-spacing: 2px; text-transform: uppercase; color: #8A9A8A; margin-top: 10px;">Días</div>
-      </div>
-      <div style="width: 1px; height: clamp(40px, 8vw, 80px); background: #8A9A8A; opacity: 0.4;"></div>
-      <div style="flex: 1 1 0; min-width: 0;">
-        <div style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 11vw, 108px); color: #3d3630; line-height: 1;">{{ countdown.hours }}</div>
-        <div style="font-size: clamp(10px, 2vw, 14px); letter-spacing: 2px; text-transform: uppercase; color: #8A9A8A; margin-top: 10px;">Horas</div>
-      </div>
-      <div style="width: 1px; height: clamp(40px, 8vw, 80px); background: #8A9A8A; opacity: 0.4;"></div>
-      <div style="flex: 1 1 0; min-width: 0;">
-        <div style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 11vw, 108px); color: #3d3630; line-height: 1;">{{ countdown.minutes }}</div>
-        <div style="font-size: clamp(10px, 2vw, 14px); letter-spacing: 2px; text-transform: uppercase; color: #8A9A8A; margin-top: 10px;">Min</div>
-      </div>
-      <div style="width: 1px; height: clamp(40px, 8vw, 80px); background: #8A9A8A; opacity: 0.4;"></div>
-      <div style="flex: 1 1 0; min-width: 0;">
-        <div style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 11vw, 108px); color: #3d3630; line-height: 1;">{{ countdown.seconds }}</div>
-        <div style="font-size: clamp(10px, 2vw, 14px); letter-spacing: 2px; text-transform: uppercase; color: #8A9A8A; margin-top: 10px;">Seg</div>
-      </div>
-    </div>
-  </section>
-
   <!-- LA FIESTA -->
   <section id="dresscode" data-screen-label="La fiesta" data-fade="{{ true }}" style="background: #F7F4ED;">
     <div style="display: grid; grid-template-columns: {{ fiestaColumns }}; align-items: center; row-gap: {{ fiestaRowGap }}; max-width: 1200px; margin: 0 auto;">
@@ -172,13 +146,13 @@
   </section>
 
   <!-- HISTORIA -->
-  <section id="historia" data-screen-label="Nuestra historia" data-fade="{{ true }}" style="padding: 80px 0; background: #800020;">
+  <section id="galeria" data-screen-label="Galería" data-fade="{{ true }}" style="padding: 80px 0; background: #800020;">
     <div style="max-width: 780px; margin: 0 auto 12px; text-align: center; padding: 0 24px;">
       <h2 style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: clamp(40px, 6vw, 44px); letter-spacing: 1px; text-transform: uppercase; color: #F7F4ED; margin: 0;">Galería</h2>
     </div>
     <div style="position: relative; max-width: {{ storyMaxWidth }}; margin: 0 auto; display: flex; align-items: center; gap: 8px;">
       <sc-if value="{{ notMobile }}"><button onClick="{{ storyPrev }}" aria-label="Anterior" style="background: none; border: none; cursor: pointer; padding: 8px; color: #F7F4ED; font-size: 22px; flex: 0 0 auto; min-width: 44px; min-height: 44px;">‹</button></sc-if>
-      <div style="flex: 1 1 auto; min-width: 0; position: relative; padding: 32px 24px 48px;" onTouchStart="{{ storyTouchStart }}" onTouchEnd="{{ storyTouchEnd }}">
+      <div style="flex: 1 1 auto; min-width: 0; position: relative; padding: {{ storyFramePadding }};" onTouchStart="{{ storyTouchStart }}" onTouchEnd="{{ storyTouchEnd }}">
         <div style="position: relative; width: 100%; aspect-ratio: {{ storyActiveAspect }};">
           <div style="position: absolute; inset: 0; background: #FFFFFF; padding: 14px 14px 40px; box-shadow: 0 10px 24px rgba(61,54,48,0.16); transform: rotate(6deg) translateY(10px); box-sizing: border-box; z-index: 0;"></div>
           <div style="position: absolute; inset: 0; background: #FFFFFF; padding: 14px 14px 40px; box-shadow: 0 10px 24px rgba(61,54,48,0.18); transform: rotate(-5deg) translateY(6px); box-sizing: border-box; z-index: 0;"></div>
@@ -198,24 +172,6 @@
     </div>
   </section>
 
-  <!-- GALERÍA V2 -->
-  <section id="galeria2" data-screen-label="Galería (versión 2)" data-fade="{{ true }}" style="display: none; padding: 90px 24px; background: #F7F4ED; text-align: center;">
-    <h2 style="font-family: 'Mencken Std Head Narrow', 'Arial Narrow', Arial, sans-serif; font-weight: 400; font-size: clamp(38px, 6vw, 44px); letter-spacing: 1px; text-transform: uppercase; color: #800020; margin: 0; line-height: 1.15;">Galería</h2>
-    <div style="position: relative; max-width: 640px; margin: 48px auto 0; display: flex; align-items: center; justify-content: center;">
-      <div style="width: {{ gallery2SideWidth }}; flex: 0 0 auto; opacity: 0.55; margin-right: -32px; z-index: 1; transition: opacity 0.4s ease;">
-        <div style="width: 100%; aspect-ratio: 4/5; background-image: url({{ gallery2PrevSrc }}); background-size: cover; background-position: center; box-shadow: 0 10px 24px rgba(61,54,48,0.14);"></div>
-      </div>
-      <div style="width: {{ gallery2CenterWidth }}; flex: 0 0 auto; z-index: 2; position: relative;">
-        <div style="width: 100%; aspect-ratio: 4/5; background-image: url({{ gallery2CurrentSrc }}); background-size: cover; background-position: center; box-shadow: 0 16px 40px rgba(61,54,48,0.22);"></div>
-      </div>
-      <div style="width: {{ gallery2SideWidth }}; flex: 0 0 auto; opacity: 0.55; margin-left: -32px; z-index: 1; transition: opacity 0.4s ease;">
-        <div style="width: 100%; aspect-ratio: 4/5; background-image: url({{ gallery2NextSrc }}); background-size: cover; background-position: center; box-shadow: 0 10px 24px rgba(61,54,48,0.14);"></div>
-      </div>
-      <button onClick="{{ gallery2Prev }}" aria-label="Anterior" style="position: absolute; left: {{ gallery2ArrowInset }}; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: #8A9A8A; color: #F7F4ED; font-size: 18px; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center;">‹</button>
-      <button onClick="{{ gallery2Next }}" aria-label="Siguiente" style="position: absolute; right: {{ gallery2ArrowInset }}; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: #8A9A8A; color: #F7F4ED; font-size: 18px; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center;">›</button>
-    </div>
-  </section>
-
   <!-- REGALOS -->
   <section id="regalos" data-screen-label="Para quienes nos preguntaron" data-fade="{{ true }}" style="padding: 80px 24px; text-align: center; background: #F7F4ED;">
     <img src="./assets/gift-doodle-burgundy.png" alt="Regalo" style="width: 108px; height: auto; margin: 0 auto 20px; display: block;"/>
@@ -225,7 +181,7 @@
   </section>
 
   <!-- RSVP -->
-  <section id="rsvp" data-screen-label="RSVP" data-fade="{{ true }}" style="position: relative; padding: 80px 20px; background: #800020;">
+  <section id="rsvp" data-screen-label="RSVP" data-fade="{{ true }}" style="position: relative; padding: {{ rsvpPadding }}; background: #800020;">
     <sc-if value="{{ notMobile }}"><img src="./assets/envelope-doodle-cream.png" alt="" style="width: 72px; height: auto; position: absolute; top: 32px; left: 24px; opacity: 0.8; transform: rotate(-8deg);"/></sc-if>
     <sc-if value="{{ isMobile }}"><img src="./assets/envelope-doodle-cream.png" alt="" style="width: 72px; height: auto; position: absolute; top: 24px; left: 20px; opacity: 0.8; transform: rotate(-8deg);"/></sc-if>
     <div style="max-width: 560px; margin: 0 auto;">
@@ -321,11 +277,13 @@ class Component extends DCLogic {
   gallery2Next = () => this.setState((s) => ({ gallery2Index: (s.gallery2Index + 1) % this.gallery2Photos.length }));
 
   storyPhotos = [
-    { src: './images/gallery-1.jpg', aspect: '3/4' },
+    { src: './images/gallery-1.jpg', aspect: '4/3' },
     { src: './images/gallery-2.jpg', aspect: '3/4' },
     { src: './images/gallery-3.jpg', aspect: '3/4' },
+    { src: './images/gallery-5.jpg', aspect: '4/3' },
+    { src: './images/gallery-7.jpg', aspect: '3/4' },
+    { src: './images/gallery-6.jpg', aspect: '4/3' },
     { src: './images/gallery-4.jpg', aspect: '3/4' },
-    { src: './images/gallery-5.jpg', aspect: '3/4' },
   ];
   storyPrev = () => this.setState((s) => ({ storyIndex: (s.storyIndex - 1 + this.storyPhotos.length) % this.storyPhotos.length }));
   storyNext = () => this.setState((s) => ({ storyIndex: (s.storyIndex + 1) % this.storyPhotos.length }));
@@ -471,7 +429,7 @@ class Component extends DCLogic {
       padding: heroCompact ? '0 20px 32px' : '228px 24px 0 104px',
       textAlign: heroCompact ? 'center' : 'left',
       marginRight: heroCompact ? undefined : 'auto',
-      textAlign: heroCompact ? 'center' : 'left', width: heroCompact ? '100%' : undefined,
+      width: heroCompact ? '100%' : undefined,
       animation: 'fadeInUp 1.1s ease both',
     };
     const heroHeadingStyle = {
@@ -506,12 +464,14 @@ class Component extends DCLogic {
       menuOpen, closeMenu: this.closeMenu, toggleMenu: this.toggleMenu,
       barTopStyle, barMidStyle, barBotStyle, menuOverlayStyle, menuLinkStyle, navStyle: this.navStyle(), navInnerStyle: this.navInnerStyle(), navLinkStyle, menuButtonStyle, logoStyle: this.logoStyle(), heroTextWrapStyle, heroHeadingStyle, scrolled, notScrolled, quoteBlockStyle, quoteTextAlign, quotePhotoWidth, calendarUrl, separatorHeight, separatorPos,
       heroImgStyle, heroSectionStyle, notMobile: !isMobile, isMobile, heroCompact, notHeroCompact: !heroCompact, dayLabelSize: 24,
-      storyMaxWidth: isMobile ? '340px' : '620px',
+      storyMaxWidth: isMobile ? (this.storyPhotos[this.state.storyIndex].aspect === '4/3' ? '410px' : '370px') : '620px',
+      storyFramePadding: isMobile ? '32px 16px 48px' : '32px 24px 48px',
       detailsColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
       handsAspect: isMobile ? '4/3' : '2252/1053',
       handsBgSize: isMobile ? 'cover' : 'cover',
       handsMaxHeight: isMobile ? 'none' : '560px',
       quotePadding: isMobile ? '80px 24px 80px' : '120px 24px 120px',
+      rsvpPadding: isMobile ? '80px 24px' : '80px 20px',
       fiestaTextOrder: isMobile ? 1 : 0,
       fiestaPhotoOrder: isMobile ? 2 : 0,
       fiestaColumns: isMobile ? '1fr' : '1fr 1fr',
