@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cami y Fede//Boda//ES
+BEGIN:VEVENT
+UID:cami-fede-boda-20261017@savethedate
+SUMMARY:Boda de Cami & Fede
+LOCATION:Zabala Paz Eventos\, Av. Gral. Paz 12585\, B1752 Lomas del Mirador
+DTSTART:20261017T190000
+DTEND:20261018T020000
+DESCRIPTION:Nos casamos! Te esperamos para celebrar.
+END:VEVENT
+END:VCALENDAR

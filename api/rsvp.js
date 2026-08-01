@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, lastName, attending, guests, diet, song1, song2, message } =
+  const { name, attending, guests, guestNames, diet, song1, song2, message } =
     req.body || {};
 
   if (!name || !attending) {
@@ -19,6 +19,26 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Notion no está configurado.' });
   }
 
+  const guestCount = Math.min(Number(guests) || 0, 4);
+  const properties = {
+    'Nombre y Apellido': {
+      title: [{ text: { content: name } }],
+    },
+    Asiste: { select: { name: attending === 'si' ? 'Sí' : 'No' } },
+    Acompañantes: { number: guestCount },
+    Dieta: { rich_text: [{ text: { content: diet || '' } }] },
+    'Cancion 1': { rich_text: [{ text: { content: song1 || '' } }] },
+    'Cancion 2': { rich_text: [{ text: { content: song2 || '' } }] },
+    Mensaje: { rich_text: [{ text: { content: message || '' } }] },
+  };
+
+  for (let i = 0; i < guestCount; i++) {
+    const guestName = (Array.isArray(guestNames) && guestNames[i]) || '';
+    properties[`Nombre y Apellido +${i + 1}`] = {
+      rich_text: [{ text: { content: guestName } }],
+    };
+  }
+
   try {
     const notionRes = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
@@ -29,17 +49,7 @@ module.exports = async (req, res) => {
       },
       body: JSON.stringify({
         parent: { database_id: databaseId },
-        properties: {
-          'Nombre completo': {
-            title: [{ text: { content: `${name} ${lastName || ''}`.trim() } }],
-          },
-          Asiste: { select: { name: attending === 'si' ? 'Sí' : 'No' } },
-          Acompañantes: { number: Number(guests) || 0 },
-          Dieta: { rich_text: [{ text: { content: diet || '' } }] },
-          'Canción 1': { rich_text: [{ text: { content: song1 || '' } }] },
-          'Canción 2': { rich_text: [{ text: { content: song2 || '' } }] },
-          Mensaje: { rich_text: [{ text: { content: message || '' } }] },
-        },
+        properties,
       }),
     });
 

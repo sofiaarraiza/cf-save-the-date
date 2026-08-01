@@ -521,9 +521,8 @@
             </div>
           </div>
           <a
-            href="{{ calendarUrl }}"
+            href="./assets/Cami-y-Fede-Boda.ics"
             download="Cami-y-Fede-Boda.ics"
-            onClick="{{ addToCalendar }}"
             style="
               display: block;
               width: fit-content;
@@ -716,7 +715,7 @@
                 <image-slot
                   id="fiesta-photo"
                   shape="rect"
-                  src="./images/fiesta-photo.jpg"
+                  src="./images/dresscode-cami-fede.jpg"
                   placeholder="Foto de la fiesta"
                   style="width: 100%; aspect-ratio: 4/5; display: block"
                 ></image-slot>
@@ -1517,11 +1516,6 @@
         transition: opacity 0.6s ease;
       "
     >
-      <img
-        src="./assets/logo-mark-burgundy.png"
-        alt=""
-        style="height: 48px; width: auto; opacity: 0.9"
-      />
       <div
         style="
           font-family: 'Playfair Display', serif;
@@ -1717,7 +1711,8 @@
             var isActive = btn.getAttribute('data-currency') === currency;
             btn.style.background = isActive ? '#800020' : 'transparent';
             btn.style.color = isActive ? '#f7f4ed' : '#800020';
-            if (isActive) aliasValue.textContent = btn.getAttribute('data-alias');
+            if (isActive)
+              aliasValue.textContent = btn.getAttribute('data-alias');
           });
         }
 
@@ -1740,7 +1735,10 @@
           }
 
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(showCopied).catch(showCopied);
+            navigator.clipboard
+              .writeText(text)
+              .then(showCopied)
+              .catch(showCopied);
           } else {
             var temp = document.createElement('textarea');
             temp.value = text;
@@ -1841,42 +1839,6 @@
           if (dx < -40) this.storyNext();
           else if (dx > 40) this.storyPrev();
           this._touchX = null;
-        };
-
-        icsBody = [
-          'BEGIN:VCALENDAR',
-          'VERSION:2.0',
-          'BEGIN:VEVENT',
-          'SUMMARY:Boda de Cami & Fede',
-          'LOCATION:Zabala Paz Eventos, Av. Gral. Paz 12585, B1752 Lomas del Mirador',
-          'DTSTART:20261017T190000',
-          'DTEND:20261018T020000',
-          'DESCRIPTION:Nos casamos! Te esperamos para celebrar.',
-          'END:VEVENT',
-          'END:VCALENDAR',
-        ].join('\r\n');
-
-        // iOS Safari ignores the `download` attribute on data: URIs and just
-        // navigates to raw text instead of showing the Add-to-Calendar sheet,
-        // so it needs a plain navigation while other browsers get a real file download.
-        addToCalendar = (e) => {
-          e.preventDefault();
-          const isIOS =
-            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-          if (isIOS) {
-            window.location.href =
-              'data:text/calendar;charset=utf-8,' + encodeURIComponent(this.icsBody);
-            return;
-          }
-          const blob = new Blob([this.icsBody], { type: 'text/calendar;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = 'Cami-y-Fede-Boda.ics';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          setTimeout(() => URL.revokeObjectURL(url), 1000);
         };
 
         componentDidMount() {
@@ -2169,9 +2131,6 @@
           const quotePhotoWidth = isMobile ? '220px' : '260px';
           const separatorHeight = isMobile ? '65vh' : '85vh';
           const separatorPos = isMobile ? '50% 100%' : '50% 70%';
-          const calendarUrl =
-            'data:text/calendar;charset=utf-8,' + encodeURIComponent(this.icsBody);
-
           const attendingYesStyle = this.pillStyle(rsvp.attending === 'si');
           attendingYesStyle.flex = '1 1 0';
           attendingYesStyle.justifyContent = 'center';
@@ -2232,8 +2191,6 @@
             quoteBlockStyle,
             quoteTextAlign,
             quotePhotoWidth,
-            calendarUrl,
-            addToCalendar: this.addToCalendar,
             separatorHeight,
             separatorPos,
             heroImgStyle,
