@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Notion no está configurado.' });
   }
 
-  const guestCount = Math.min(Number(guests) || 0, 4);
+  const guestCount = Math.min(Number(guests) || 0, 2);
   const properties = {
     'Nombre y Apellido': {
       title: [{ text: { content: name } }],

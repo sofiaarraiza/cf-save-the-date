@@ -1786,7 +1786,7 @@
             'acompanantes',
           );
           const n = parseInt(raw, 10);
-          return Number.isFinite(n) && n > 0 ? Math.min(n, 10) : 0;
+          return Number.isFinite(n) && n > 0 ? Math.min(n, 2) : 0;
         })();
 
         gallery2Photos = [
@@ -1944,7 +1944,7 @@
           this.setState((s) => {
             const guestNames = [...s.rsvp.guestNames];
             guestNames[index] = value;
-            return { rsvp: { ...s.rsvp, guestNames } };
+            return { rsvp: { ...s.rsvp, guestNames }, rsvpError: '' };
           });
         onRsvpDietChange = (e) =>
           this.setState((s) => ({ rsvp: { ...s.rsvp, diet: e.target.value } }));
@@ -1968,13 +1968,27 @@
         submitRsvp = async (e) => {
           e.preventDefault();
           if (this.state.rsvpSubmitting) return;
-          const { name, attending } = this.state.rsvp;
+          const { name, attending, guests, guestNames } = this.state.rsvp;
           if (!name.trim()) {
             this.setState({ rsvpError: 'Por favor ingresá tu nombre completo.' });
             return;
           }
           if (!attending) {
             this.setState({ rsvpError: 'Por favor indicanos si asistís.' });
+            return;
+          }
+          const guestCount = parseInt(guests, 10) || 0;
+          const missingGuestName = Array.from(
+            { length: guestCount },
+            (_, i) => guestNames[i],
+          ).some((n) => !n || !n.trim());
+          if (guestCount > 0 && missingGuestName) {
+            this.setState({
+              rsvpError:
+                guestCount === 1
+                  ? 'Por favor completá el nombre y apellido de tu acompañante.'
+                  : 'Por favor completá el nombre y apellido de cada acompañante.',
+            });
             return;
           }
           this.setState({ rsvpSubmitting: true, rsvpError: '' });
