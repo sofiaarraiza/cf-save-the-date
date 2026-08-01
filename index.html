@@ -1428,15 +1428,17 @@
                 >
                   ¡Gracias, {{ rsvp.name }}!
                 </div>
-                <p
-                  style="
-                    font-size: 15px;
-                    color: rgba(247, 244, 237, 0.8);
-                    margin: 0;
-                  "
-                >
-                  Recibimos tu confirmación. ¡Nos vemos el 17 de octubre!
-                </p>
+                <sc-if value="{{ rsvpAttendingYes }}" hint-placeholder-val="{{ true }}">
+                  <p
+                    style="
+                      font-size: 15px;
+                      color: rgba(247, 244, 237, 0.8);
+                      margin: 0;
+                    "
+                  >
+                    Recibimos tu confirmación. ¡Nos vemos el 17 de octubre!
+                  </p>
+                </sc-if>
               </div>
             </sc-if>
           </div>
@@ -1734,20 +1736,32 @@
             }, 1500);
           }
 
+          function legacyCopy() {
+            var temp = document.createElement('textarea');
+            temp.value = text;
+            temp.style.position = 'fixed';
+            temp.style.opacity = '0';
+            document.body.appendChild(temp);
+            temp.focus();
+            temp.select();
+            temp.setSelectionRange(0, text.length);
+            var ok = false;
+            try {
+              ok = document.execCommand('copy');
+            } catch (err) {}
+            document.body.removeChild(temp);
+            return ok;
+          }
+
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard
               .writeText(text)
               .then(showCopied)
-              .catch(showCopied);
-          } else {
-            var temp = document.createElement('textarea');
-            temp.value = text;
-            document.body.appendChild(temp);
-            temp.select();
-            try {
-              document.execCommand('copy');
-            } catch (err) {}
-            document.body.removeChild(temp);
+              .catch(function (err) {
+                console.error('clipboard.writeText failed, falling back', err);
+                if (legacyCopy()) showCopied();
+              });
+          } else if (legacyCopy()) {
             showCopied();
           }
         });
@@ -1820,16 +1834,23 @@
           { src: './images/gallery-7-v2.jpg', aspect: '4/3' },
           { src: './images/gallery-8-v2.jpg', aspect: '3/4' },
         ];
-        storyPrev = () =>
+        storyPrev = () => {
           this.setState((s) => ({
             storyIndex:
               (s.storyIndex - 1 + this.storyPhotos.length) % this.storyPhotos.length,
           }));
-        storyNext = () =>
+          this.restartStoryAutoplay();
+        };
+        storyNext = () => {
           this.setState((s) => ({
             storyIndex: (s.storyIndex + 1) % this.storyPhotos.length,
           }));
-        storyGoTo = (i) => this.setState({ storyIndex: i });
+          this.restartStoryAutoplay();
+        };
+        storyGoTo = (i) => {
+          this.setState({ storyIndex: i });
+          this.restartStoryAutoplay();
+        };
         storyTouchStart = (e) => {
           this._touchX = e.touches[0].clientX;
         };
@@ -1840,10 +1861,22 @@
           else if (dx > 40) this.storyPrev();
           this._touchX = null;
         };
+        storyAdvance = () =>
+          this.setState((s) => ({
+            storyIndex: (s.storyIndex + 1) % this.storyPhotos.length,
+          }));
+        startStoryAutoplay = () => {
+          this._storyInterval = setInterval(this.storyAdvance, 4000);
+        };
+        restartStoryAutoplay = () => {
+          clearInterval(this._storyInterval);
+          this.startStoryAutoplay();
+        };
 
         componentDidMount() {
           this.tick();
           this._interval = setInterval(this.tick, 1000);
+          this.startStoryAutoplay();
           this.onScroll = () =>
             this.setState((s) =>
               s.scrolled === window.scrollY > 40
@@ -1875,6 +1908,7 @@
 
         componentWillUnmount() {
           clearInterval(this._interval);
+          clearInterval(this._storyInterval);
           if (this._observer) this._observer.disconnect();
           window.removeEventListener('scroll', this.onScroll);
           window.removeEventListener('resize', this.onResize);
@@ -2310,6 +2344,7 @@
             attendingYesStyle,
             attendingNoStyle,
             showGuestFields: rsvp.attending === 'si',
+            rsvpAttendingYes: rsvp.attending === 'si',
             showGuestsSelect,
             showGuestNameFields,
             guestOptions,
