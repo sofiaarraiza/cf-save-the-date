@@ -523,6 +523,7 @@
           <a
             href="{{ calendarUrl }}"
             download="Cami-y-Fede-Boda.ics"
+            onClick="{{ addToCalendar }}"
             style="
               display: block;
               width: fit-content;
@@ -667,7 +668,7 @@
                 src="./assets/discoball-doodle-burgundy.png"
                 alt="Bola de disco"
                 style="
-                  width: 72px;
+                  width: 48px;
                   height: auto;
                   margin: 0 0 16px;
                   display: block;
@@ -685,6 +686,7 @@
               >
                 Sentite libre de traer un calzado extra para la pista de baile.
               </p>
+              <br />
               <p
                 style="
                   font-family: 'Jost', sans-serif;
@@ -730,6 +732,18 @@
           data-fade="{{ true }}"
           style="padding: 80px 0; background: #800020"
         >
+          <img
+            src="./assets/cyf.png"
+            alt=""
+            style="
+              width: 86px;
+              height: auto;
+              position: absolute;
+              top: 24px;
+              right: 24px;
+              opacity: 0.8;
+            "
+          />
           <div
             style="
               max-width: 780px;
@@ -905,10 +919,153 @@
               max-width: 48ch;
             "
           >
-            El mejor regalo es compartir este día con vos. Si además querés
-            acompañarnos en esta nueva etapa y ayudarnos a cumplir más sueños
-            juntos, te dejamos nuestros datos.
+            Lo más importante para nosotros es compartir este día con vos. Si
+            además queres hacernos un regalo, te dejamos nuestros datos
+            bancarios:
           </p>
+          <div
+            id="gift-card"
+            style="
+              max-width: 340px;
+              margin: 0 auto 32px;
+              padding: 28px 32px;
+              background: #f7f4ed;
+              border: 1px solid rgba(128, 0, 32, 0.25);
+              box-shadow: 0 10px 24px rgba(61, 54, 48, 0.12);
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                font-family: 'Jost', sans-serif;
+                font-size: 16px;
+                color: #3d3630;
+                margin-bottom: 2px;
+              "
+            >
+              Banco Galicia
+            </div>
+            <div
+              style="
+                font-family: 'Jost', sans-serif;
+                font-size: 14px;
+                color: #8a9a8a;
+                margin-bottom: 4px;
+              "
+            >
+              Camila Kasparian
+            </div>
+            <div
+              style="
+                font-family: 'Jost', sans-serif;
+                font-size: 12px;
+                color: #8a9a8a;
+                margin-bottom: 22px;
+              "
+            >
+              CUIT 27-40012031-0
+            </div>
+
+            <div
+              style="
+                display: inline-flex;
+                border: 1px solid rgba(128, 0, 32, 0.3);
+                border-radius: 2px;
+                margin-bottom: 20px;
+                overflow: hidden;
+              "
+            >
+              <button
+                type="button"
+                class="gift-currency-btn"
+                data-currency="ars"
+                data-alias="Camiyfede.ars"
+                style="
+                  padding: 5px 14px;
+                  border: none;
+                  background: #800020;
+                  color: #f7f4ed;
+                  font-family: 'Jost', sans-serif;
+                  font-size: 10px;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                "
+              >
+                ARS
+              </button>
+              <button
+                type="button"
+                class="gift-currency-btn"
+                data-currency="usd"
+                data-alias="Camiyfede.usd"
+                style="
+                  padding: 5px 14px;
+                  border: none;
+                  background: transparent;
+                  color: #800020;
+                  font-family: 'Jost', sans-serif;
+                  font-size: 10px;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                "
+              >
+                USD
+              </button>
+            </div>
+
+            <div
+              style="
+                font-family: 'Jost', sans-serif;
+                font-size: 11px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: #8a9a8a;
+                margin-bottom: 6px;
+              "
+            >
+              Alias
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+              "
+            >
+              <span
+                id="gift-alias-value"
+                style="
+                  font-family: 'Jost', sans-serif;
+                  font-size: 18px;
+                  font-weight: 500;
+                  color: #800020;
+                "
+              >
+                Camiyfede.ars
+              </span>
+              <button
+                type="button"
+                id="gift-copy-btn"
+                style="
+                  padding: 6px 14px;
+                  border: 1px solid rgba(128, 0, 32, 0.35);
+                  border-radius: 2px;
+                  background: transparent;
+                  color: #800020;
+                  font-family: 'Jost', sans-serif;
+                  font-size: 11px;
+                  letter-spacing: 0.5px;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                "
+              >
+                Copiar
+              </button>
+            </div>
+          </div>
           <p
             style="
               font-family: 'Jost', sans-serif;
@@ -941,7 +1098,7 @@
                 top: 32px;
                 left: 24px;
                 opacity: 0.8;
-                transform: rotate(-8deg);
+                transform: rotate(-24deg);
               "
           /></sc-if>
           <sc-if value="{{ isMobile }}"
@@ -955,7 +1112,7 @@
                 top: 24px;
                 left: 20px;
                 opacity: 0.8;
-                transform: rotate(-8deg);
+                transform: rotate(-24deg);
               "
           /></sc-if>
           <div style="max-width: 560px; margin: 0 auto">
@@ -992,61 +1149,32 @@
               hint-placeholder-val="{{ true }}"
             >
               <form onSubmit="{{ submitRsvp }}">
-                <div style="margin-bottom: 22px; display: flex; gap: 14px">
-                  <div style="flex: 1 1 0">
-                    <label
-                      style="
-                        display: block;
-                        font-size: 15px;
-                        color: #f7f4ed;
-                        margin-bottom: 8px;
-                      "
-                      >Nombre *</label
-                    >
-                    <input
-                      type="text"
-                      value="{{ rsvp.name }}"
-                      onChange="{{ onRsvpNameChange }}"
-                      placeholder="Tu nombre"
-                      style="
-                        width: 100%;
-                        padding: 14px 16px;
-                        font-size: 16px;
-                        border: 1px solid rgba(247, 244, 237, 0.4);
-                        border-radius: 2px;
-                        background: #f7f4ed;
-                        min-height: 44px;
-                        box-sizing: border-box;
-                      "
-                    />
-                  </div>
-                  <div style="flex: 1 1 0">
-                    <label
-                      style="
-                        display: block;
-                        font-size: 15px;
-                        color: #f7f4ed;
-                        margin-bottom: 8px;
-                      "
-                      >Apellido *</label
-                    >
-                    <input
-                      type="text"
-                      value="{{ rsvp.lastName }}"
-                      onChange="{{ onRsvpLastNameChange }}"
-                      placeholder="Tu apellido"
-                      style="
-                        width: 100%;
-                        padding: 14px 16px;
-                        font-size: 16px;
-                        border: 1px solid rgba(247, 244, 237, 0.4);
-                        border-radius: 2px;
-                        background: #f7f4ed;
-                        min-height: 44px;
-                        box-sizing: border-box;
-                      "
-                    />
-                  </div>
+                <div style="margin-bottom: 22px">
+                  <label
+                    style="
+                      display: block;
+                      font-size: 15px;
+                      color: #f7f4ed;
+                      margin-bottom: 8px;
+                    "
+                    >Nombre y apellido *</label
+                  >
+                  <input
+                    type="text"
+                    value="{{ rsvp.name }}"
+                    onChange="{{ onRsvpNameChange }}"
+                    placeholder="Tu nombre y apellido"
+                    style="
+                      width: 100%;
+                      padding: 14px 16px;
+                      font-size: 16px;
+                      border: 1px solid rgba(247, 244, 237, 0.4);
+                      border-radius: 2px;
+                      background: #f7f4ed;
+                      min-height: 44px;
+                      box-sizing: border-box;
+                    "
+                  />
                 </div>
                 <div style="margin-bottom: 22px">
                   <div
@@ -1073,36 +1201,74 @@
                   value="{{ showGuestFields }}"
                   hint-placeholder-val="{{ false }}"
                 >
-                  <div style="margin-bottom: 22px">
-                    <label
-                      style="
-                        display: block;
-                        font-size: 15px;
-                        color: #f7f4ed;
-                        margin-bottom: 8px;
-                      "
-                      >Cantidad de acompañantes</label
+                  <sc-if
+                    value="{{ showGuestsSelect }}"
+                    hint-placeholder-val="{{ false }}"
+                  >
+                    <div style="margin-bottom: 22px">
+                      <label
+                        style="
+                          display: block;
+                          font-size: 15px;
+                          color: #f7f4ed;
+                          margin-bottom: 8px;
+                        "
+                        >Cantidad de acompañantes</label
+                      >
+                      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                        <sc-for
+                          list="{{ guestOptions }}"
+                          as="opt"
+                          hint-placeholder-count="2"
+                        >
+                          <div
+                            onClick="{{ opt.onClick }}"
+                            style="{{ opt.style }}"
+                          >
+                            {{ opt.label }}
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <sc-if
+                    value="{{ showGuestNameFields }}"
+                    hint-placeholder-val="{{ false }}"
+                  >
+                    <sc-for
+                      list="{{ guestNameFields }}"
+                      as="gf"
+                      hint-placeholder-count="1"
                     >
-                    <select
-                      value="{{ rsvp.guests }}"
-                      onChange="{{ onRsvpGuestsChange }}"
-                      style="
-                        width: 100%;
-                        padding: 14px 16px;
-                        font-size: 16px;
-                        border: 1px solid rgba(247, 244, 237, 0.4);
-                        border-radius: 2px;
-                        background: #f7f4ed;
-                        min-height: 44px;
-                      "
-                    >
-                      <option value="0">Solo yo</option>
-                      <option value="1">+1</option>
-                      <option value="2">+2</option>
-                      <option value="3">+3</option>
-                      <option value="4">+4</option>
-                    </select>
-                  </div>
+                      <div style="margin-bottom: 22px">
+                        <label
+                          style="
+                            display: block;
+                            font-size: 15px;
+                            color: #f7f4ed;
+                            margin-bottom: 8px;
+                          "
+                          >{{ gf.label }}</label
+                        >
+                        <input
+                          type="text"
+                          value="{{ gf.value }}"
+                          onChange="{{ gf.onChange }}"
+                          placeholder="Nombre y apellido"
+                          style="
+                            width: 100%;
+                            padding: 14px 16px;
+                            font-size: 16px;
+                            border: 1px solid rgba(247, 244, 237, 0.4);
+                            border-radius: 2px;
+                            background: #f7f4ed;
+                            min-height: 44px;
+                            box-sizing: border-box;
+                          "
+                        />
+                      </div>
+                    </sc-for>
+                  </sc-if>
                   <div style="margin-bottom: 22px">
                     <label
                       style="
@@ -1182,6 +1348,34 @@
                     />
                   </div>
                 </sc-if>
+                <div style="margin-bottom: 22px">
+                  <label
+                    style="
+                      display: block;
+                      font-size: 15px;
+                      color: #f7f4ed;
+                      margin-bottom: 8px;
+                    "
+                    >Mensaje para los novios</label
+                  >
+                  <textarea
+                    value="{{ rsvp.message }}"
+                    onChange="{{ onRsvpMessageChange }}"
+                    placeholder="Dejales unas palabras (opcional)"
+                    rows="4"
+                    style="
+                      width: 100%;
+                      padding: 14px 16px;
+                      font-size: 16px;
+                      font-family: inherit;
+                      border: 1px solid rgba(247, 244, 237, 0.4);
+                      border-radius: 2px;
+                      background: #f7f4ed;
+                      box-sizing: border-box;
+                      resize: vertical;
+                    "
+                  ></textarea>
+                </div>
                 <sc-if
                   value="{{ rsvpError }}"
                   hint-placeholder-val="{{ false }}"
@@ -1209,7 +1403,7 @@
                     margin-top: 10px;
                   "
                 >
-                  Confirmar
+                  {{ rsvpButtonLabel }}
                 </button>
               </form>
             </sc-if>
@@ -1416,15 +1610,6 @@
         left: 18px;
         bottom: 18px;
         z-index: 999;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: #f7f4ed;
-        border: 1px solid rgba(128, 0, 32, 0.35);
-        border-radius: 2px;
-        box-shadow: 0 10px 24px rgba(61, 54, 48, 0.18);
-        padding: 8px 14px 8px 8px;
-        font-family: 'Jost', sans-serif;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.4s ease;
@@ -1435,11 +1620,10 @@
         type="button"
         aria-label="Pausar música"
         style="
-          width: 36px;
-          height: 36px;
-          flex: 0 0 auto;
+          width: 44px;
+          height: 44px;
           border: none;
-          border-radius: 2px;
+          border-radius: 50%;
           background: #800020;
           color: #f7f4ed;
           cursor: pointer;
@@ -1448,22 +1632,11 @@
           justify-content: center;
           font-size: 14px;
           padding: 0;
+          box-shadow: 0 10px 24px rgba(61, 54, 48, 0.18);
         "
       >
         <span id="bgm-icon">❙❙</span>
       </button>
-      <span
-        id="bgm-label"
-        style="
-          font-size: 11px;
-          letter-spacing: 0.5px;
-          color: #800020;
-          text-transform: uppercase;
-          white-space: nowrap;
-        "
-      >
-        Mi Vida Entera – Morat
-      </span>
     </div>
 
     <script>
@@ -1512,6 +1685,74 @@
             setPlayingUI(false);
           }
         });
+
+        var darkSectionIds = ['galeria', 'rsvp'];
+
+        function updateBubbleTheme() {
+          var rect = toggle.getBoundingClientRect();
+          var y = rect.top + rect.height / 2;
+          var overDark = darkSectionIds.some(function (id) {
+            var section = document.getElementById(id);
+            if (!section) return false;
+            var sectionRect = section.getBoundingClientRect();
+            return y >= sectionRect.top && y <= sectionRect.bottom;
+          });
+          toggle.style.background = overDark ? '#f7f4ed' : '#800020';
+          toggle.style.color = overDark ? '#800020' : '#f7f4ed';
+        }
+
+        window.addEventListener('scroll', updateBubbleTheme, { passive: true });
+        window.addEventListener('resize', updateBubbleTheme);
+        updateBubbleTheme();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        function setActiveCurrency(currency) {
+          var aliasValue = document.getElementById('gift-alias-value');
+          var buttons = document.querySelectorAll('.gift-currency-btn');
+          if (!aliasValue || !buttons.length) return;
+          buttons.forEach(function (btn) {
+            var isActive = btn.getAttribute('data-currency') === currency;
+            btn.style.background = isActive ? '#800020' : 'transparent';
+            btn.style.color = isActive ? '#f7f4ed' : '#800020';
+            if (isActive) aliasValue.textContent = btn.getAttribute('data-alias');
+          });
+        }
+
+        document.addEventListener('click', function (e) {
+          var btn = e.target.closest('.gift-currency-btn');
+          if (btn) setActiveCurrency(btn.getAttribute('data-currency'));
+        });
+
+        document.addEventListener('click', function (e) {
+          var copyBtn = e.target.closest('#gift-copy-btn');
+          if (!copyBtn) return;
+          var aliasValue = document.getElementById('gift-alias-value');
+          var text = aliasValue ? aliasValue.textContent.trim() : '';
+
+          function showCopied() {
+            copyBtn.textContent = 'Copiado';
+            setTimeout(function () {
+              copyBtn.textContent = 'Copiar';
+            }, 1500);
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(showCopied).catch(showCopied);
+          } else {
+            var temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            try {
+              document.execCommand('copy');
+            } catch (err) {}
+            document.body.removeChild(temp);
+            showCopied();
+          }
+        });
       })();
     </script>
 
@@ -1525,26 +1766,40 @@
           countdown: { days: '00', hours: '00', minutes: '00', seconds: '00' },
           rsvp: {
             name: '',
-            lastName: '',
             attending: '',
             guests: '0',
+            guestNames: [],
             diet: '',
             song1: '',
             song2: '',
             message: '',
           },
           rsvpSubmitted: false,
+          rsvpSubmitting: false,
           rsvpError: '',
           storyIndex: 0,
           gallery2Index: 0,
         };
 
+        // Couple controls this via a URL param on the invite link, e.g. ?acompanantes=2
+        maxExtraGuests = (() => {
+          if (typeof window === 'undefined') return 0;
+          const raw = new URLSearchParams(window.location.search).get(
+            'acompanantes',
+          );
+          const n = parseInt(raw, 10);
+          return Number.isFinite(n) && n > 0 ? Math.min(n, 10) : 0;
+        })();
+
         gallery2Photos = [
-          './images/gallery-1.jpg',
-          './images/gallery-2.jpg',
-          './images/gallery-3.jpg',
-          './images/gallery-4.jpg',
-          './images/gallery-5.jpg',
+          './images/gallery-1-v2.jpg',
+          './images/gallery-2-v2.jpg',
+          './images/gallery-3-v2.jpg',
+          './images/gallery-4-v2.jpg',
+          './images/gallery-5-v2.jpg',
+          './images/gallery-6-v2.jpg',
+          './images/gallery-7-v2.jpg',
+          './images/gallery-8-v2.jpg',
         ];
         gallery2Prev = () =>
           this.setState((s) => ({
@@ -1558,13 +1813,14 @@
           }));
 
         storyPhotos = [
-          { src: './images/gallery-1.jpg', aspect: '4/3' },
-          { src: './images/gallery-2.jpg', aspect: '3/4' },
-          { src: './images/gallery-3.jpg', aspect: '3/4' },
-          { src: './images/gallery-5.jpg', aspect: '4/3' },
-          { src: './images/gallery-7.jpg', aspect: '3/4' },
-          { src: './images/gallery-6.jpg', aspect: '4/3' },
-          { src: './images/gallery-4.jpg', aspect: '3/4' },
+          { src: './images/gallery-1-v2.jpg', aspect: '4/3' },
+          { src: './images/gallery-2-v2.jpg', aspect: '3/4' },
+          { src: './images/gallery-3-v2.jpg', aspect: '3/4' },
+          { src: './images/gallery-4-v2.jpg', aspect: '3/4' },
+          { src: './images/gallery-5-v2.jpg', aspect: '4/3' },
+          { src: './images/gallery-6-v2.jpg', aspect: '4/3' },
+          { src: './images/gallery-7-v2.jpg', aspect: '4/3' },
+          { src: './images/gallery-8-v2.jpg', aspect: '3/4' },
         ];
         storyPrev = () =>
           this.setState((s) => ({
@@ -1585,6 +1841,42 @@
           if (dx < -40) this.storyNext();
           else if (dx > 40) this.storyPrev();
           this._touchX = null;
+        };
+
+        icsBody = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'BEGIN:VEVENT',
+          'SUMMARY:Boda de Cami & Fede',
+          'LOCATION:Zabala Paz Eventos, Av. Gral. Paz 12585, B1752 Lomas del Mirador',
+          'DTSTART:20261017T190000',
+          'DTEND:20261018T020000',
+          'DESCRIPTION:Nos casamos! Te esperamos para celebrar.',
+          'END:VEVENT',
+          'END:VCALENDAR',
+        ].join('\r\n');
+
+        // iOS Safari ignores the `download` attribute on data: URIs and just
+        // navigates to raw text instead of showing the Add-to-Calendar sheet,
+        // so it needs a plain navigation while other browsers get a real file download.
+        addToCalendar = (e) => {
+          e.preventDefault();
+          const isIOS =
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+          if (isIOS) {
+            window.location.href =
+              'data:text/calendar;charset=utf-8,' + encodeURIComponent(this.icsBody);
+            return;
+          }
+          const blob = new Blob([this.icsBody], { type: 'text/calendar;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'Cami-y-Fede-Boda.ics';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
         };
 
         componentDidMount() {
@@ -1684,13 +1976,14 @@
             rsvp: { ...s.rsvp, name: e.target.value },
             rsvpError: '',
           }));
-        onRsvpLastNameChange = (e) =>
-          this.setState((s) => ({
-            rsvp: { ...s.rsvp, lastName: e.target.value },
-            rsvpError: '',
-          }));
-        onRsvpGuestsChange = (e) =>
-          this.setState((s) => ({ rsvp: { ...s.rsvp, guests: e.target.value } }));
+        onGuestCountSelect = (value) =>
+          this.setState((s) => ({ rsvp: { ...s.rsvp, guests: String(value) } }));
+        onRsvpGuestNameChange = (index, value) =>
+          this.setState((s) => {
+            const guestNames = [...s.rsvp.guestNames];
+            guestNames[index] = value;
+            return { rsvp: { ...s.rsvp, guestNames } };
+          });
         onRsvpDietChange = (e) =>
           this.setState((s) => ({ rsvp: { ...s.rsvp, diet: e.target.value } }));
         onRsvpSong1Change = (e) =>
@@ -1710,8 +2003,9 @@
             rsvpError: '',
           }));
 
-        submitRsvp = (e) => {
+        submitRsvp = async (e) => {
           e.preventDefault();
+          if (this.state.rsvpSubmitting) return;
           const { name, attending } = this.state.rsvp;
           if (!name.trim()) {
             this.setState({ rsvpError: 'Por favor ingresá tu nombre completo.' });
@@ -1721,8 +2015,21 @@
             this.setState({ rsvpError: 'Por favor indicanos si asistís.' });
             return;
           }
-          // TODO: send this.state.rsvp to the RSVP backend/endpoint here (e.g. fetch('/api/rsvp', { method: 'POST', body: JSON.stringify(this.state.rsvp) }))
-          this.setState({ rsvpSubmitted: true, rsvpError: '' });
+          this.setState({ rsvpSubmitting: true, rsvpError: '' });
+          try {
+            const res = await fetch('/api/rsvp', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(this.state.rsvp),
+            });
+            if (!res.ok) throw new Error('rsvp request failed');
+            this.setState({ rsvpSubmitted: true, rsvpSubmitting: false, rsvpError: '' });
+          } catch (err) {
+            this.setState({
+              rsvpSubmitting: false,
+              rsvpError: 'No pudimos enviar tu confirmación. Probá de nuevo en un momento.',
+            });
+          }
         };
 
         pillStyle = (selected, base) => ({
@@ -1740,7 +2047,9 @@
         });
 
         renderVals() {
-          const { menuOpen, countdown, rsvp, rsvpSubmitted, rsvpError } = this.state;
+          const { menuOpen, countdown, rsvp, rsvpSubmitted, rsvpSubmitting, rsvpError } =
+            this.state;
+          const rsvpButtonLabel = rsvpSubmitting ? 'Enviando...' : 'Confirmar';
 
           const scrolled = this.state.scrolled;
           const notScrolled = !this.state.scrolled;
@@ -1860,20 +2169,8 @@
           const quotePhotoWidth = isMobile ? '220px' : '260px';
           const separatorHeight = isMobile ? '65vh' : '85vh';
           const separatorPos = isMobile ? '50% 100%' : '50% 70%';
-          const icsBody = [
-            'BEGIN:VCALENDAR',
-            'VERSION:2.0',
-            'BEGIN:VEVENT',
-            'SUMMARY:Boda de Cami & Fede',
-            'LOCATION:Zabala Paz Eventos, Av. Gral. Paz 12585, B1752 Lomas del Mirador',
-            'DTSTART:20261017T190000',
-            'DTEND:20261018T020000',
-            'DESCRIPTION:Nos casamos! Te esperamos para celebrar.',
-            'END:VEVENT',
-            'END:VCALENDAR',
-          ].join('\r\n');
           const calendarUrl =
-            'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsBody);
+            'data:text/calendar;charset=utf-8,' + encodeURIComponent(this.icsBody);
 
           const attendingYesStyle = this.pillStyle(rsvp.attending === 'si');
           attendingYesStyle.flex = '1 1 0';
@@ -1883,6 +2180,36 @@
           attendingNoStyle.flex = '1 1 0';
           attendingNoStyle.justifyContent = 'center';
           attendingNoStyle.textAlign = 'center';
+
+          const selectedGuestCount = parseInt(rsvp.guests, 10) || 0;
+          const showGuestsSelect = rsvp.attending === 'si' && this.maxExtraGuests > 0;
+          const showGuestNameFields = rsvp.attending === 'si' && selectedGuestCount > 0;
+          const guestOptions = [];
+          for (let i = 0; i <= this.maxExtraGuests; i++) {
+            const optionStyle = this.pillStyle(String(i) === rsvp.guests);
+            optionStyle.flex = '0 0 auto';
+            optionStyle.minWidth = '64px';
+            optionStyle.justifyContent = 'center';
+            optionStyle.textAlign = 'center';
+            guestOptions.push({
+              n: i,
+              label: i === 0 ? 'Solo yo' : '+' + i,
+              onClick: () => this.onGuestCountSelect(i),
+              style: optionStyle,
+            });
+          }
+          const guestNameFields = Array.from(
+            { length: selectedGuestCount },
+            (_, i) => ({
+              n: i,
+              value: rsvp.guestNames[i] || '',
+              onChange: (e) => this.onRsvpGuestNameChange(i, e.target.value),
+              label:
+                selectedGuestCount === 1
+                  ? 'Nombre y apellido de tu acompañante'
+                  : `Nombre y apellido - acompañante ${i + 1}`,
+            }),
+          );
 
           return {
             menuOpen,
@@ -1906,6 +2233,7 @@
             quoteTextAlign,
             quotePhotoWidth,
             calendarUrl,
+            addToCalendar: this.addToCalendar,
             separatorHeight,
             separatorPos,
             heroImgStyle,
@@ -1999,16 +2327,22 @@
             countdown,
             rsvp,
             rsvpSubmitted,
+            rsvpButtonLabel,
             rsvpError,
             onRsvpNameChange: this.onRsvpNameChange,
-            onRsvpGuestsChange: this.onRsvpGuestsChange,
             onRsvpDietChange: this.onRsvpDietChange,
+            onRsvpSong1Change: this.onRsvpSong1Change,
+            onRsvpSong2Change: this.onRsvpSong2Change,
             onRsvpMessageChange: this.onRsvpMessageChange,
             setAttendingYes: this.setAttendingYes,
             setAttendingNo: this.setAttendingNo,
             attendingYesStyle,
             attendingNoStyle,
             showGuestFields: rsvp.attending === 'si',
+            showGuestsSelect,
+            showGuestNameFields,
+            guestOptions,
+            guestNameFields,
             submitRsvp: this.submitRsvp,
           };
         }
